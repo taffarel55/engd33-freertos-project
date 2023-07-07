@@ -19,6 +19,7 @@ TaskHandle_t hledTask;
 void ledTask(void *arg);
 
 void start_rtos(void) {
+	srand(time(NULL));
 	xTaskCreate(ledTask,
 				"ledTask",
 				128,
