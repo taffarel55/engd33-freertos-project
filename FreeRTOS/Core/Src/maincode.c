@@ -12,6 +12,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "ahrs.h"
+#include "controller.h"
 
 TaskHandle_t hledTask;
 
@@ -25,7 +26,8 @@ void start_rtos(void) {
 				1,
 				&hledTask);
 
-	init_AHRS();
+	//init_AHRS();
+	initTest();
 
 	vTaskStartScheduler();
 

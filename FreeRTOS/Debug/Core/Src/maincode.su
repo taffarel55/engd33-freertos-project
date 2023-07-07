@@ -1,2 +1,2 @@
-../Core/Src/maincode.c:20:6:start_rtos	16	static
-../Core/Src/maincode.c:35:6:ledTask	16	static
+../Core/Src/maincode.c:21:6:start_rtos	16	static
+../Core/Src/maincode.c:37:6:ledTask	16	static

@@ -1,4 +1,5 @@
 "./Core/Src/AHRS/ahrs.o"
+"./Core/Src/Controller/controller.o"
 "./Core/Src/freertos.o"
 "./Core/Src/main.o"
 "./Core/Src/maincode.o"
