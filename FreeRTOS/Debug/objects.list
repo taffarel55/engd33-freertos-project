@@ -1,5 +1,6 @@
 "./Core/Src/AHRS/ahrs.o"
 "./Core/Src/Controller/controller.o"
+"./Core/Src/Util/math_util.o"
 "./Core/Src/freertos.o"
 "./Core/Src/main.o"
 "./Core/Src/maincode.o"

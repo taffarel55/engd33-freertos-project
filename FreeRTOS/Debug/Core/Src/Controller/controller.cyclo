@@ -1,2 +1,4 @@
-controller.c:10:6:initTest	1
-controller.c:19:6:taskTest	1
+controller.c:16:12:vInitController	2
+controller.c:31:6:vTaskDataSync	1
+controller.c:47:6:vTaskGetSetPointFromNetwork	2
+controller.c:67:6:vTaskSimulatePointsFromNetwork	2

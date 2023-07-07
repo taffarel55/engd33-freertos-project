@@ -39,7 +39,9 @@ Core/Src/maincode.o: ../Core/Src/maincode.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../Core/Inc/ahrs.h ../Core/Inc/controller.h
+ ../Core/Inc/ahrs.h ../Core/Inc/controller.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Core/Inc/math_util.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 ../Core/Inc/stm32f3xx_hal_conf.h:
@@ -83,3 +85,5 @@ Core/Src/maincode.o: ../Core/Src/maincode.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Core/Inc/ahrs.h:
 ../Core/Inc/controller.h:
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+../Core/Inc/math_util.h:

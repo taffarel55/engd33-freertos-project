@@ -1,2 +1,4 @@
-../Core/Src/Controller/controller.c:10:6:initTest	16	static
-../Core/Src/Controller/controller.c:19:6:taskTest	16	static
+../Core/Src/Controller/controller.c:16:12:vInitController	16	static
+../Core/Src/Controller/controller.c:31:6:vTaskDataSync	48	static
+../Core/Src/Controller/controller.c:47:6:vTaskGetSetPointFromNetwork	48	static
+../Core/Src/Controller/controller.c:67:6:vTaskSimulatePointsFromNetwork	32	static

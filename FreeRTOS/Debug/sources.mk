@@ -24,6 +24,7 @@ C_DEPS :=
 SUBDIRS := \
 Core/Src/AHRS \
 Core/Src/Controller \
+Core/Src/Util \
 Core/Src \
 Core/Startup \
 Drivers/STM32F3xx_HAL_Driver/Src \
