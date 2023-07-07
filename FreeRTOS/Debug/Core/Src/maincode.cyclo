@@ -1,2 +1,2 @@
-maincode.c:18:6:start_rtos	1
-maincode.c:31:6:ledTask	1
+maincode.c:20:6:start_rtos	1
+maincode.c:35:6:ledTask	1

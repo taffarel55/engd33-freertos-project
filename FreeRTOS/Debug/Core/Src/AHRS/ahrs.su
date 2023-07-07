@@ -1,0 +1,2 @@
+../Core/Src/AHRS/ahrs.c:10:6:init_AHRS	16	static
+../Core/Src/AHRS/ahrs.c:19:6:AHRSTask	16	static

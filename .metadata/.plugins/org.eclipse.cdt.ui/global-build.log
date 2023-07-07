@@ -407,3 +407,263 @@ Finished building: default.size.stdout
  
 Finished building: FreeRTOS.list
  
+21:38:12 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  23520	    124	   8460	  32104	   7d68	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 
+21:38:31 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+../Core/Src/maincode.c: In function 'ledTask':
+../Core/Src/maincode.c:33:3: error: unknown type name 's'
+   33 |   s
+      |   ^
+In file included from ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h:141,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h:29,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f3xx_hal_conf.h:199,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/maincode.c:9:
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f334x8.h:885:29: error: expected declaration specifiers or '...' before '(' token
+  885 | #define GPIOA               ((GPIO_TypeDef *) GPIOA_BASE)
+      |                             ^
+../Core/Inc/main.h:69:23: note: in expansion of macro 'GPIOA'
+   69 | #define LD2_GPIO_Port GPIOA
+      |                       ^~~~~
+../Core/Src/maincode.c:34:21: note: in expansion of macro 'LD2_GPIO_Port'
+   34 |   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 1);
+      |                     ^~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:203,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/maincode.c:9:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h:88:36: error: expected declaration specifiers or '...' before '(' token
+   88 | #define GPIO_PIN_5                 ((uint16_t)0x0020U)  /* Pin 5 selected    */
+      |                                    ^
+../Core/Inc/main.h:68:17: note: in expansion of macro 'GPIO_PIN_5'
+   68 | #define LD2_Pin GPIO_PIN_5
+      |                 ^~~~~~~~~~
+../Core/Src/maincode.c:34:36: note: in expansion of macro 'LD2_Pin'
+   34 |   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 1);
+      |                                    ^~~~~~~
+../Core/Src/maincode.c:34:45: error: expected declaration specifiers or '...' before numeric constant
+   34 |   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 1);
+      |                                             ^
+make: *** [Core/Src/subdir.mk:43: Core/Src/maincode.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+21:38:51 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  23520	    124	   8460	  32104	   7d68	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 
+21:39:21 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-size   FreeRTOS.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23520	    124	   8460	  32104	   7d68	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+21:43:22 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+../Core/Src/maincode.c: In function 'start_rtos':
+../Core/Src/maincode.c:26:14: error: 'testandoFuncao' undeclared (first use in this function)
+   26 |  xTaskCreate(testandoFuncao,
+      |              ^~~~~~~~~~~~~~
+../Core/Src/maincode.c:26:14: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:43: Core/Src/maincode.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+21:43:53 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  23608	    124	   8460	  32192	   7dc0	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 
+21:44:03 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-size   FreeRTOS.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23608	    124	   8460	  32192	   7dc0	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+21:51:55 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  23520	    124	   8460	  32104	   7d68	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 
+22:20:41 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+../Core/Src/maincode.c: In function 'ledTask':
+../Core/Src/maincode.c:34:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   34 |   printf("Led ligada sem a placa\n");
+      |   ^~~~~~
+../Core/Src/maincode.c:34:3: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/maincode.c:13:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   12 | #include "task.h"
+  +++ |+#include <stdio.h>
+   13 | 
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  38512	    488	   8472	  47472	   b970	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 
+22:28:51 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+../Core/Src/maincode.c: In function 'ledTask':
+../Core/Src/maincode.c:34:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   34 |   printf("Led ligada sem a placa");
+      |   ^~~~~~
+../Core/Src/maincode.c:34:3: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/maincode.c:13:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   12 | #include "task.h"
+  +++ |+#include <stdio.h>
+   13 | 
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  38328	    488	   8472	  47288	   b8b8	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 
+22:40:43 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  38328	    488	   8472	  47288	   b8b8	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 
+22:45:45 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  38512	    488	   8472	  47472	   b970	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 
+22:47:28 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  38512	    488	   8472	  47472	   b970	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 
+22:59:07 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/AHRS/ahrs.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/AHRS/ahrs.d" -MT"Core/Src/AHRS/ahrs.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/AHRS/ahrs.o"
+arm-none-eabi-gcc "../Core/Src/maincode.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/maincode.d" -MT"Core/Src/maincode.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/maincode.o"
+../Core/Src/AHRS/ahrs.c: In function 'init_AHRS':
+../Core/Src/AHRS/ahrs.c:9:2: warning: implicit declaration of function 'xTaskCreate' [-Wimplicit-function-declaration]
+    9 |  xTaskCreate(AHRSTask,
+      |  ^~~~~~~~~~~
+../Core/Src/AHRS/ahrs.c:9:14: error: 'AHRSTask' undeclared (first use in this function)
+    9 |  xTaskCreate(AHRSTask,
+      |              ^~~~~~~~
+../Core/Src/AHRS/ahrs.c:9:14: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/AHRS/ahrs.c:12:5: error: 'NULL' undeclared (first use in this function)
+   12 |     NULL,
+      |     ^~~~
+../Core/Src/AHRS/ahrs.c:1:1: note: 'NULL' is defined in header '<stddef.h>'; did you forget to '#include <stddef.h>'?
+  +++ |+#include <stddef.h>
+    1 | /*
+../Core/Src/AHRS/ahrs.c: In function 'AHRSTask':
+../Core/Src/AHRS/ahrs.c:19:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   19 |   printf("[AHRS] Tarefa AHRS rodando a cada 1s \n");
+      |   ^~~~~~
+../Core/Src/AHRS/ahrs.c:19:3: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/AHRS/ahrs.c:1:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+  +++ |+#include <stdio.h>
+    1 | /*
+../Core/Src/AHRS/ahrs.c:20:3: warning: implicit declaration of function 'vTaskDelay' [-Wimplicit-function-declaration]
+   20 |   vTaskDelay(pdMS_TO_TICKS(1000));
+      |   ^~~~~~~~~~
+../Core/Src/AHRS/ahrs.c:20:14: warning: implicit declaration of function 'pdMS_TO_TICKS' [-Wimplicit-function-declaration]
+   20 |   vTaskDelay(pdMS_TO_TICKS(1000));
+      |              ^~~~~~~~~~~~~
+make: *** [Core/Src/AHRS/subdir.mk:19: Core/Src/AHRS/ahrs.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+22:59:38 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/AHRS/ahrs.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F334x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/AHRS/ahrs.d" -MT"Core/Src/AHRS/ahrs.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/AHRS/ahrs.o"
+arm-none-eabi-gcc -o "FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dbserver/Maurício/real-time-embedded-systems/Trabalho/engd33-freertos-project/FreeRTOS/STM32F334R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS.elf
+ 
+arm-none-eabi-size   FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS.elf  > "FreeRTOS.list"
+   text	   data	    bss	    dec	    hex	filename
+  38648	    488	   8472	  47608	   b9f8	FreeRTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRTOS.list
+ 

@@ -1,7 +1,8 @@
-main.c:77:5:main	1
-main.c:155:6:SystemClock_Config	3
-main.c:194:13:MX_USART2_UART_Init	2
-main.c:229:13:MX_GPIO_Init	1
-main.c:275:6:StartDefaultTask	1
-main.c:294:6:HAL_TIM_PeriodElapsedCallback	2
-main.c:311:6:Error_Handler	1
+main.c:72:1:__io_putchar	1
+main.c:88:5:main	1
+main.c:166:6:SystemClock_Config	3
+main.c:205:13:MX_USART2_UART_Init	2
+main.c:240:13:MX_GPIO_Init	1
+main.c:286:6:StartDefaultTask	1
+main.c:305:6:HAL_TIM_PeriodElapsedCallback	2
+main.c:322:6:Error_Handler	1

@@ -6,10 +6,12 @@
  */
 
 #include <stdint.h>
+#include <stdio.h>
 #include "main.h"
 #include "cmsis_os.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "ahrs.h"
 
 TaskHandle_t hledTask;
 
@@ -23,6 +25,8 @@ void start_rtos(void) {
 				1,
 				&hledTask);
 
+	init_AHRS();
+
 	vTaskStartScheduler();
 
 	while(1);
@@ -31,10 +35,13 @@ void start_rtos(void) {
 void ledTask(void *arg) {
 	while(1) {
 		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 1);
-		HAL_GPIO_WritePin(LD_EXT_GPIO_Port, LD_EXT_Pin, 0);
-		vTaskDelay(pdMS_TO_TICKS(100));
+		printf("Led ligada sem a placa\n");
+		vTaskDelay(pdMS_TO_TICKS(1000));
+
 		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, 0);
-		HAL_GPIO_WritePin(LD_EXT_GPIO_Port, LD_EXT_Pin, 1);
-		vTaskDelay(pdMS_TO_TICKS(100));
+		printf("Led desligada sem a placa\n");
+		vTaskDelay(pdMS_TO_TICKS(1000));
 	}
 }
+
+
